@@ -1,0 +1,291 @@
+/* --------------------------------------------------------------
+		4. SITE
+			4.1 HEADER
+-------------------------------------------------------------- */
+
+header {}
+
+/* --------------------------------------------------------------
+			4.2 NAVIGATION
+-------------------------------------------------------------- */
+
+nav[role=navigation] {}
+
+/* --------------------------------------------------------------
+			4.3 CONTENT
+-------------------------------------------------------------- */
+
+.container[role=main] {}
+
+/* --------------------------------------------------------------
+			4.4 FOOTER
+-------------------------------------------------------------- */
+
+footer {
+	padding: 80px 0 40px;
+	text-align: center;
+}
+	footer p {
+		font-size: 14px;	
+	}
+
+	footer p a:hover {
+		color: black;
+	}
+
+
+/* --------------------------------------------------------------
+		4. SITE
+			4.1 HEADER
+-------------------------------------------------------------- */
+
+
+#top {
+	overflow: hidden;
+	padding: 20px 35px;
+
+	background: #fff;
+	border-bottom: 1px solid rgba(22,36,54,.1);
+	
+	 a {
+		float: left;
+		font-size: 16px;
+		font-weight: 500;
+		text-decoration: none;
+		color: #333;
+	}
+	
+	ul {
+		list-style: none;
+		float: right;
+
+		a {
+			display: inline-block;
+			color: #333;
+		}
+		
+		 li {
+			float: left;
+			padding-left: 40px;
+		}
+	}
+}
+
+
+/* --------------------------------------------------------------
+			4.2 CONTENT
+-------------------------------------------------------------- */
+
+.article-single, .page-top {
+	margin-top: 20px !important;
+
+	 small {
+		display: block;
+		margin-bottom: 20px;
+	}
+}
+
+/* --------------------------------------------------------------
+		ANCHOR STYLES — items, pagination & comments
+-------------------------------------------------------------- */
+
+
+/**
+ *   Index page listing, category listing, search page results
+ */
+.items {
+	list-style: none;
+	float: left;
+}
+		.posts .items > li {
+			background: #fff !important;
+			padding: 60px 0 100px 0;
+			border-bottom: 1px solid rgba(22,36,54,.1);
+		}
+			.items li h1 a, .posts .items > li h2 a {
+				color: #f38065;
+			}
+
+	.items h1 {
+		padding: 0;
+	}
+		.items h1 a {
+			text-decoration: none;
+		}
+	.items h2 {
+		font-size: 32px;
+		line-height: 41px;
+	}
+		.items h2 a {
+			display: block;
+			padding-bottom: 12px;
+
+			color: #fff;
+			color: rgba(176,200,236,.8);
+
+			text-decoration: none;
+		}
+			.items h2 a:hover {
+				color: #fff;
+			}
+
+			.items small, small {
+				display: block;
+				margin-bottom: 10px;
+				color: #999;
+			}
+
+/**
+ *   Pagination
+ */
+.pagination {
+	overflow: hidden;
+	padding: 30px 0;
+	margin-bottom: 50px;
+
+	border-bottom: 1px solid rgba(22,36,54,.1);
+
+	&:empty {
+		display: none;
+	}
+
+	 a {
+		float: left;
+		text-decoration: none;
+
+		font-size: 13px;
+		font-weight: 500;
+
+		color: #6f7b8b;
+	
+		&:hover {
+			color: #3c4857;
+		}
+			 a.next {
+				float: right;
+			}
+		}
+}
+
+
+
+/**
+ *   Comment form
+ */
+ul.commentlist {
+	margin-bottom: 40px;
+	list-style: none;
+	position: relative;
+	border-top: 1px solid rgba(22,36,54,.1);
+
+		li {
+				padding: 40px 0;
+				border-bottom: 1px solid rgba(22,36,54,.1);
+			}
+
+			time {
+				font-size: 13px;
+				margin-bottom: 15px;
+				display: block;
+			}
+			 h2 {
+				font-size: 25px;
+				line-height: 33px;
+			}
+	}
+
+#comment {
+	overflow: hidden;
+	font-family: @nunito;
+}
+	#comment label[for] {
+		display: none;
+	}
+	#comment p {
+		float: left;
+		width: 48%;
+		margin-right: 4%;
+		margin-bottom: 10px;
+
+		text-indent: 0;
+	}
+		#comment p + p {
+			margin-right: 0;
+		}
+		#comment p.textarea {
+			float: none;
+			width: 100%;
+		}
+	#comment input, #comment textarea {
+		width: 100%;
+		padding: 15px 15px;
+
+		font-size: 15px;
+		font-weight: normal;
+
+		border: 1px solid rgba(22,36,54,.2);
+		border-radius: 4px;
+	}
+
+	#comment input {
+		padding: 20px 15px;
+	}
+
+		#comment input:focus, #comment textarea:focus {
+			outline: none;
+			background: #f7f9fc;
+		}
+		#comment textarea {
+			min-height: 150px;
+			max-height: 800px;
+			resize: vertical;
+		}
+
+	#comment button, .btn-posts {
+		display: inline-block;
+		padding: 9px 18px;
+
+		background: #f38065;
+		color: #fff !important;
+		text-decoration: none;
+
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+
+		font-size: 13px;
+		font-weight: 500;
+	}
+		#comment button:hover, .btn-posts:hover {
+			background: #b98072;
+		}
+
+		.btn-posts {
+			line-height: 1.2;
+			float: right;
+			display: inline-block;
+			margin-top: 40px;
+		}
+
+			.btn-posts i {
+				margin-left: 5px;
+			}
+
+			.nocomments {
+				color: #999;
+			}
+
+			.twitter {
+				float: none;
+				background: #55ACEE;
+			}
+
+			.twitter:hover {
+				background: #55ACEE;
+				opacity: .9;
+			}
+
+			.twitter i {
+				margin-right: 5px;
+				margin-left: 0;
+			}

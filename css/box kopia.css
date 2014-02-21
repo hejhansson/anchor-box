@@ -1,0 +1,698 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,900italic,900,700italic,700,400italic,300italic,300);
+@import url(http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@import url(normalize.css);
+/* --------------------------------------------------------------
+
+	BOXcss v1.1
+
+	TABLE OF CONTENTS
+	------------------
+	0. IMPORTS & VARIABLES
+	1. FIXES
+	2. BASE
+	3. TYPOGRAPHY
+	4. SITE
+	5. GRID
+	6. MEDIA QUERIES
+
+
+	The MIT License (MIT)
+
+	Copyright (c) 2014 Alexander Hansson
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+
+/* --------------------------------------------------------------
+	0. IMPORT, MIXINS AND VARIABLES
+	   This file contains some useful mixins, font imports
+	   and also variables.
+-------------------------------------------------------------- */
+/*----------------------------------------------------------------
+		0. IMPORTS, VARIABLES & MIXINS
+-------------------------------------------------------------- */
+/*----------------------------------------------------------------
+		COLORS
+-------------------------------------------------------------- */
+/* SELECTION */
+/*----------------------------------------------------------------
+		VAR
+-------------------------------------------------------------- */
+/* CONTAINER WIDTH */
+/* Usually between 960px and 1200px */
+/* Fonts */
+/*----------------------------------------------------------------
+		MIXINS
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+	1. FIXES
+	   OS7 Fix - some inputs collapse when empty. Disable 
+	   max-width for Google Map images. Some FF and Chrome fixes.
+	   Print-styles are included here.
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		1. FIXES
+-------------------------------------------------------------- */
+/* Firefox Fix */
+button::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner,
+input[type=file] > input[type=button]::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+/* WebKit Fix */
+input[type=search],
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+/* iOS7 Fix - some inputs collapse when empty */
+input[type=text],
+input[type=password],
+input[type=search],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=date],
+input[type=time],
+input[type=number] {
+  height: 2em;
+}
+/* Disable max-width for Google Map images */
+#map_canvas img,
+.google-maps img {
+  max-width: none;
+}
+img,
+object,
+embed {
+  border: none;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+  width: auto;
+  width: auto\9;
+  /* IE Fix */
+  height: auto;
+  border: 0;
+}
+/* --------------------------------------------------------------
+		PRINT
+-------------------------------------------------------------- */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page {
+    margin: 2cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* --------------------------------------------------------------
+		HELP CLASSES
+-------------------------------------------------------------- */
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.float-l {
+  float: left;
+}
+.float-r {
+  float: right;
+}
+/* --------------------------------------------------------------
+	2. BASE
+	   Basic styles - links, selection, *-reset.
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		2. BASE
+-------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+html {
+  overflow-y: scroll;
+  min-height: 100%;
+}
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* disable webkit tap highlight */
+}
+::selection {
+  background: #000000;
+  color: #ffffff;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: #000000;
+  color: #ffffff;
+  text-shadow: none;
+}
+a,
+a:visited {
+  text-decoration: underline;
+  color: black;
+}
+a:hover,
+a:visited:hover,
+a:focus,
+a:visited:focus {
+  color: black;
+}
+/* --------------------------------------------------------------
+	3. TYPOGRAPHY
+	   Headings, and paragraphs. Font-size and line-height adjust 
+	   for opitmal readability. (TODO - blockquote osv)
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		3. TYPOGRAPHY
+-------------------------------------------------------------- */
+small {
+  font-size: 85%;
+}
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: 700;
+}
+body {
+  font-size: 100%;
+  font-family: Georgia, serif;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+blockquote {
+  font-size: 1.125em;
+  line-height: 1.6em;
+  padding-left: 40px;
+  margin-left: -40px;
+  border-left: 2px solid #ff851b;
+}
+.initial:first-letter {
+  float: left;
+  color: #ff851b;
+  font-size: 4.4em;
+  line-height: 60px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-left: 3px;
+}
+h1,
+h2,
+h3 {
+  margin-bottom: 12px;
+  font-weight: normal;
+  line-height: 1em;
+}
+p > a {
+  font-weight: bolder;
+  text-decoration: none;
+}
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 3.2em;
+}
+h2 {
+  font-size: 2.6em;
+}
+h3 {
+  font-size: 1.525em;
+}
+p {
+  font-size: 1.125em;
+  line-height: 145%;
+  display: block;
+  margin: 0 0 1em 0;
+}
+p:last-child {
+  margin: 0;
+}
+/* --------------------------------------------------------------
+	4. SITE
+	   The styles of your pages will be in this file.
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		4. SITE
+			4.1 HEADER
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+			4.2 NAVIGATION
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+			4.3 CONTENT
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+			4.4 FOOTER
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		4. SITE
+			4.1 HEADER
+-------------------------------------------------------------- */
+h1,
+h2 {
+  color: #f38065;
+}
+#top {
+  overflow: hidden;
+  padding: 20px 35px;
+  background: #fff;
+  border-bottom: 1px solid rgba(22, 36, 54, 0.1);
+}
+#top a {
+  float: left;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+}
+#top ul {
+  list-style: none;
+  float: right;
+}
+#top ul li {
+  float: left;
+  padding-left: 40px;
+}
+#top ul a {
+  display: inline-block;
+  color: #333;
+}
+/* --------------------------------------------------------------
+			4.2 CONTENT
+-------------------------------------------------------------- */
+.article-single,
+.page-top {
+  margin-top: 40px !important;
+}
+.article-single small {
+  display: block;
+  margin-bottom: 20px;
+}
+/* --------------------------------------------------------------
+			4.3 FOOTER
+-------------------------------------------------------------- */
+footer {
+  padding: 80px 0 40px;
+  text-align: center;
+}
+footer p {
+  font-size: 12px;
+}
+footer p a:hover {
+  color: black;
+}
+/* --------------------------------------------------------------
+		ANCHOR STYLES — items, pagination & comments
+-------------------------------------------------------------- */
+/**
+ *   Index page listing, category listing, search page results
+ */
+.items {
+  list-style: none;
+  float: left;
+}
+.posts .items > li {
+  background: #fff !important;
+  padding: 60px 0 100px 0;
+  border-bottom: 1px solid rgba(22, 36, 54, 0.1);
+}
+.items li h1 a,
+.posts .items > li h2 a {
+  color: #f38065;
+}
+.items h1 {
+  padding: 0;
+}
+.items h1 a {
+  text-decoration: none;
+}
+.items h2 {
+  font-size: 32px;
+  line-height: 41px;
+}
+.items h2 a {
+  display: block;
+  padding-bottom: 12px;
+  color: #fff;
+  color: rgba(176, 200, 236, 0.8);
+  text-decoration: none;
+}
+.items h2 a:hover {
+  color: #fff;
+}
+.items small,
+small {
+  display: block;
+  margin-bottom: 10px;
+  color: #999;
+}
+/**
+ *   Pagination
+ */
+.pagination {
+  overflow: hidden;
+  padding: 30px 0;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(22, 36, 54, 0.1);
+}
+.pagination:empty {
+  display: none;
+}
+.pagination a {
+  float: left;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6f7b8b;
+}
+.pagination a:hover {
+  color: #3c4857;
+}
+.pagination a.next {
+  float: right;
+}
+/**
+ *   Comment form
+ */
+ul.commentlist {
+  margin-bottom: 40px;
+  list-style: none;
+  border-top: 1px solid rgba(22, 36, 54, 0.1);
+}
+ul.commentlist {
+  position: relative;
+}
+ul.commentlist li {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(22, 36, 54, 0.1);
+}
+ul.commentlist time {
+  font-size: 13px;
+  margin-bottom: 15px;
+  display: block;
+}
+ul.commentlist h2 {
+  font-size: 25px;
+  line-height: 33px;
+}
+ul.commentlist .counter {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 25px;
+  font-weight: 300;
+  color: #cdd2da;
+}
+#comment {
+  overflow: hidden;
+}
+#comment label[for] {
+  display: none;
+}
+#comment p {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+  margin-bottom: 10px;
+  text-indent: 0;
+}
+#comment p + p {
+  margin-right: 0;
+}
+#comment p.textarea {
+  float: none;
+  width: 100%;
+}
+#comment input,
+#comment textarea {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: normal;
+  border: 1px solid rgba(22, 36, 54, 0.2);
+  border-radius: 4px;
+}
+#comment input:focus,
+#comment textarea:focus {
+  outline: none;
+  background: #f7f9fc;
+}
+#comment textarea {
+  min-height: 150px;
+  max-height: 800px;
+  resize: vertical;
+}
+#comment button,
+.btn-posts {
+  display: inline-block;
+  padding: 9px 18px;
+  background: #f38065;
+  color: #fff !important;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+#comment button:hover,
+.btn-posts:hover {
+  background: #b98072;
+}
+.btn-posts {
+  line-height: 1.2;
+  float: right;
+  display: inline-block;
+  margin-top: 40px;
+}
+.btn-posts i {
+  margin-left: 5px;
+}
+.nocomments {
+  color: #999;
+}
+.twitter {
+  float: none;
+  background: #55ACEE;
+}
+.twitter:hover {
+  background: #55ACEE;
+  opacity: .9;
+}
+.twitter i {
+  margin-right: 5px;
+  margin-left: 0;
+}
+/* --------------------------------------------------------------
+	5. GRID
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		5. GRID
+-------------------------------------------------------------- */
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+[class*='box-'],
+.box {
+  float: left;
+  display: inline-block;
+  padding: 20px 5px;
+}
+.box-12 {
+  width: 100%;
+}
+.box-11 {
+  width: 91.6%;
+}
+.box-10 {
+  width: 83.3%;
+}
+.box-9 {
+  width: 75%;
+}
+.box-8 {
+  width: 66.6%;
+}
+.box-7 {
+  width: 58.3%;
+}
+.box-6 {
+  width: 50%;
+}
+.box-5 {
+  width: 41.6%;
+}
+.box-4 {
+  width: 33.3%;
+}
+.box-3 {
+  width: 25%;
+}
+.box-2 {
+  width: 16.6%;
+}
+.box-1 {
+  width: 8.3%;
+}
+.hidden {
+  display: none;
+}
+.notvisible {
+  visibility: hidden;
+}
+/* --------------------------------------------------------------
+	6. MEDIA QUERIES 
+	Your responsive styles here.
+-------------------------------------------------------------- */
+/* --------------------------------------------------------------
+		6. MEDIA QUERIES 
+-------------------------------------------------------------- */
+@media screen and (min-width: 540px) and (max-width: 960px) {
+  .container {
+    max-width: 500px;
+  }
+  .tablet-12 {
+    width: 100%;
+  }
+  .tablet-11 {
+    width: 91.6%;
+  }
+  .tablet-10 {
+    width: 83.3%;
+  }
+  .tablet-9 {
+    width: 75%;
+  }
+  .tablet-8 {
+    width: 66.6%;
+  }
+  .tablet-7 {
+    width: 58.3%;
+  }
+  .tablet-6 {
+    width: 50%;
+  }
+  .tablet-5 {
+    width: 41.6%;
+  }
+  .tablet-4 {
+    width: 33.3%;
+  }
+  .tablet-3 {
+    width: 25%;
+  }
+  .tablet-2 {
+    width: 16.6%;
+  }
+  .tablet-1 {
+    width: 8.3%;
+  }
+  .tablet-hidden {
+    display: none;
+  }
+}
+@media only screen and (max-width: 540px) {
+  [class*='box-'],
+  [class*='tablet-'] {
+    width: 100%;
+    margin-left: 0;
+    display: block;
+  }
+  .phone-hidden {
+    display: none;
+  }
+}

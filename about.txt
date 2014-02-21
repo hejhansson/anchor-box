@@ -1,0 +1,5 @@
+Theme name:    BOX
+Desciption:	   ""
+Author name:   Alexander Hansson
+Author site:   http://alexanderhansson.se
+License:       http://licence.visualidiot.com
