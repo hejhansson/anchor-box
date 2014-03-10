@@ -86,3 +86,48 @@ function twitter_url() {
 function total_articles() {
 	return Post::where(Base::table('posts.status'), '=', 'published')->count();
 }
+
+function hansson_posts_by_category($slug) {
+	// only run on the first call
+	if( ! Registry::has('hansson_posts_by_category')) {
+		// capture original article if one is set
+		if($article = Registry::get('article')) {
+			Registry::set('original_article', $article);
+		}
+	}
+
+	if( ! $posts = Registry::get('hansson_posts_by_category')) {
+		$category = Category::slug($slug);
+		$posts = Post::where('status', '=', 'published')->where('category', '=', $category->id)->get();
+
+		Registry::set('hansson_posts_by_category', $posts = new Items($posts));
+	}
+
+	if($result = $posts->valid()) {
+		// register single post
+		Registry::set('article', $posts->current());
+
+		// move to next
+		$posts->next();
+	}
+	else {
+		// back to the start
+		$posts->rewind();
+
+		// reset original article
+		Registry::set('article', Registry::get('original_article'));
+
+		// remove items
+		Registry::set('hansson_posts_by_category', false);
+	}
+
+	return $result;
+}
+
+/* ovan används med detta nedan —
+<?php while(hansson_posts_by_category('my-category')): ?>
+   <h1><?php echo article_title(); ?></h1>
+			<?php echo article_author();?> 
+			<?php echo article_date(); ?>
+			<?php echo article_markdown(); ?>
+<?php endwhile; ?>
