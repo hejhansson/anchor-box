@@ -8,18 +8,10 @@ strong{font-weight: 700;}
 
 body {
 	font-size: 150%/1.5;
-	font-family: @nunito;
+	font-family: @georgia;
 	color: @text-color;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-}
-
-hr {
-	border: none;
-	height: 1px;
-	background: black;
-	width: 60%;
-	margin: 4em auto;
 }
 
 blockquote {
@@ -41,7 +33,7 @@ blockquote {
 }
 
 h1,h2,h3 {
-	margin-bottom: 12px; font-weight:normal; line-height: 1em;	color:#f38065;
+	margin-bottom: 12px; font-weight:normal; line-height: 1em; 
 }
 
 p > a {
@@ -66,11 +58,10 @@ h3 {
 }
 
 p {
-	font-size: 16px;
-	line-height:1.6em;
+	font-size: @base-fontsize;
+	line-height:145%;
 	display: block;
 	margin: 0 0 1em 0; 
-	font-weight:100;
 
 	&:last-child {
 		margin: 0;
