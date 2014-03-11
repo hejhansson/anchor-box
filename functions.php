@@ -124,10 +124,18 @@ function hansson_posts_by_category($slug) {
 	return $result;
 }
 
-/* ovan används med detta nedan —
-<?php while(hansson_posts_by_category('my-category')): ?>
-   <h1><?php echo article_title(); ?></h1>
-			<?php echo article_author();?> 
-			<?php echo article_date(); ?>
-			<?php echo article_markdown(); ?>
-<?php endwhile; ?>
+function latest_post($limit = 1) {
+    if( ! $posts = Registry::get('zleek_latest_post')) {
+        $posts = Post::where('status', '=', 'published')->sort('created', 'desc')->take($limit)->get();
+        Registry::set('zleek_latest_post', $posts = new Items($posts));
+    }
+    if($result = $posts->valid()) {
+        // register single post
+        Registry::set('article', $posts->current());
+        // move to next
+        $posts->next();
+    }
+    // back to the start
+    else $posts->rewind();
+    return $result;
+}
