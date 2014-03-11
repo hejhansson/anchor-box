@@ -11,6 +11,12 @@
 			    <input type="email" name="_replyto">
 			    <input class="btn-posts" type="submit" value="Send">
 			</form>
+
+			<?php while(hansson_posts_by_category('test')): ?>
+			   <h1><?php echo article_title(); ?></h1>
+						<?php echo article_markdown(); ?>
+			<?php endwhile; ?>
+						
 			
 			</div>
 		</div>
