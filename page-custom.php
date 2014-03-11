@@ -7,7 +7,7 @@
 			<p>Custom page</p>
 
 			<? // Get posts by category ?>
-			<?php while(hansson_posts_by_category('test')): ?>
+			<?php while(posts_by_category('test')): ?>
 				<h1><?php echo article_title(); ?></h1>
 				<?php echo article_markdown(); ?>
 			<?php endwhile; ?>

@@ -55,22 +55,6 @@ function relative_time($date) {
 	}
 }
 
-function footer_latest_posts() {
-    if( ! $posts = Registry::get('footer_latest_posts')) {
-        $posts = Post::where('status', '=', 'published')->sort('created', 'desc')->get();
-        Registry::set('footer_latest_posts', $posts = new Items($posts));
-    }
-    if($result = $posts->valid()) {
-        // register single post
-        Registry::set('article', $posts->current());
-        // move to next
-        $posts->next();
-    }
-    // back to the start
-    else $posts->rewind();
-    return $result;
-}
-
 function twitter_account() {
 	return site_meta('twitter', 'hejhansson');
 }
@@ -87,7 +71,7 @@ function total_articles() {
 	return Post::where(Base::table('posts.status'), '=', 'published')->count();
 }
 
-function hansson_posts_by_category($slug) {
+function posts_by_category($slug) {
 	// only run on the first call
 	if( ! Registry::has('hansson_posts_by_category')) {
 		// capture original article if one is set
