@@ -6,16 +6,26 @@
 			<?php echo page_content(); ?>
 			<p>Custom page</p>
 
-			<form id="comment" action="//api.formspree.com/you@email.com">
-			    <input type="text" name="name">
-			    <input type="email" name="_replyto">
-			    <input class="btn-posts" type="submit" value="Send">
-			</form>
-
+			<? // Get posts by category ?>
 			<?php while(hansson_posts_by_category('test')): ?>
-			   <h1><?php echo article_title(); ?></h1>
-						<?php echo article_markdown(); ?>
+				<h1><?php echo article_title(); ?></h1>
+				<?php echo article_markdown(); ?>
 			<?php endwhile; ?>
+
+			<? // Get custom fields for post ?>
+			<?php if (article_custom_field('post_img')): ?>
+				<?php echo "<img src='"; ?>
+				<?php echo article_custom_field('post_img'); ?>
+				<?php echo "'>"; ?>
+ 			<?php endif; ?>
+
+			<? // Get custom fields for page ?>
+ 			<?php if (page_custom_field('page_img')): ?>
+				<?php echo "<img src='"; ?>
+				<?php echo page_custom_field('page_img'); ?>
+				<?php echo "'>"; ?>
+ 			<?php endif; ?>
+	
 						
 			
 			</div>
