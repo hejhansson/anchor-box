@@ -73,18 +73,18 @@ function total_articles() {
 
 function posts_by_category($slug) {
 	// only run on the first call
-	if( ! Registry::has('hansson_posts_by_category')) {
+	if( ! Registry::has('posts_by_category')) {
 		// capture original article if one is set
 		if($article = Registry::get('article')) {
 			Registry::set('original_article', $article);
 		}
 	}
 
-	if( ! $posts = Registry::get('hansson_posts_by_category')) {
+	if( ! $posts = Registry::get('posts_by_category')) {
 		$category = Category::slug($slug);
 		$posts = Post::where('status', '=', 'published')->where('category', '=', $category->id)->get();
 
-		Registry::set('hansson_posts_by_category', $posts = new Items($posts));
+		Registry::set('posts_by_category', $posts = new Items($posts));
 	}
 
 	if($result = $posts->valid()) {
@@ -102,16 +102,16 @@ function posts_by_category($slug) {
 		Registry::set('article', Registry::get('original_article'));
 
 		// remove items
-		Registry::set('hansson_posts_by_category', false);
+		Registry::set('posts_by_category', false);
 	}
 
 	return $result;
 }
 
 function latest_post($limit = 1) {
-    if( ! $posts = Registry::get('zleek_latest_post')) {
+    if( ! $posts = Registry::get('latest_post')) {
         $posts = Post::where('status', '=', 'published')->sort('created', 'desc')->take($limit)->get();
-        Registry::set('zleek_latest_post', $posts = new Items($posts));
+        Registry::set('latest_post', $posts = new Items($posts));
     }
     if($result = $posts->valid()) {
         // register single post
