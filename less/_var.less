@@ -1,13 +1,16 @@
-
 /*----------------------------------------------------------------
-		0. IMPORTS, VARIABLES & MIXINS
+		GRID
 -------------------------------------------------------------- */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
-@import url(http://fonts.googleapis.com/css?family=Merriweather:400,900italic,900,700italic,700,400italic,300italic,300);
-@import url(http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700);
-@import url(normalize.css);
+@desktop:   ~"only screen and (min-width: 960px)";
+@tablet: ~"screen and (min-width: 540px) and (max-width: 960px)";
+@phone:    ~"only screen and (max-width: 540px)";
+
+/* CONTAINER WIDTH */	
+/* Usually between 960px and 1200px */ 
+@cont-width: 960px;
+@cont-width-tablet: 700px;
+
 
 /*----------------------------------------------------------------
 		COLORS
@@ -43,21 +46,23 @@
 @selection-background: black;
 
 /*----------------------------------------------------------------
-		
+		IMPORTS
 -------------------------------------------------------------- */
 
-/* CONTAINER WIDTH */	
-/* Usually between 960px and 1200px */ 
-@cont-width: 640px;
-@cont-width-tablet: 500px;
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,900italic,900,700italic,700,400italic,300italic,300);
+@import url(http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700);
 
-/* Fonts */
+/*----------------------------------------------------------------
+		FONTS
+-------------------------------------------------------------- */
+
 @lato: 'Lato', helvetica, sans-serif;
 @opensans: 'Open Sans', helvetica, sans-serif;
 @merriweather: 'Merriweather', Georgia, serif;
 @georgia: Georgia, serif;
 @oldstandard: 'Old Standard TT', serif;
-
 
 /*----------------------------------------------------------------
 		MIXINS
