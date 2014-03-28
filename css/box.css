@@ -2,12 +2,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,900italic,900,700italic,700,400italic,300italic,300);
 @import url(http://fonts.googleapis.com/css?family=Old+Standard+TT:400,400italic,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,300,400,600,700,800);
-@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
 /* --------------------------------------------------------------
 
 	BOXcss v1.1
-	/Applications/XAMPP/xamppfiles/htdocs/anc/themes/alexander
 
 	TABLE OF CONTENTS
 	------------------
@@ -45,151 +42,84 @@
 /* --------------------------------------------------------------
 	0. IMPORT, MIXINS AND VARIABLES
 	   This file contains some useful mixins, font imports
-	   and also variables.
+	   and variables.
 -------------------------------------------------------------- */
 /*----------------------------------------------------------------
-		0. IMPORTS, VARIABLES & MIXINS
+		GRID
 -------------------------------------------------------------- */
+/* CONTAINER WIDTH */
+/* Usually between 960px and 1200px */
 /*----------------------------------------------------------------
 		COLORS
 -------------------------------------------------------------- */
 /* SELECTION */
 /*----------------------------------------------------------------
-		VAR
+		IMPORTS
 -------------------------------------------------------------- */
-/* CONTAINER WIDTH */
-/* Usually between 960px and 1200px */
-/* Fonts */
+/*----------------------------------------------------------------
+		FONTS
+-------------------------------------------------------------- */
 /*----------------------------------------------------------------
 		MIXINS
 -------------------------------------------------------------- */
 /* --------------------------------------------------------------
-	1. FIXES
-	   OS7 Fix - some inputs collapse when empty. Disable 
-	   max-width for Google Map images. Some FF and Chrome fixes.
-	   Print-styles are included here.
+	1. GRID
 -------------------------------------------------------------- */
 /* --------------------------------------------------------------
-		1. FIXES
+		1. GRID
 -------------------------------------------------------------- */
-/* Firefox Fix */
-button::-moz-focus-inner,
-input[type=reset]::-moz-focus-inner,
-input[type=button]::-moz-focus-inner,
-input[type=submit]::-moz-focus-inner,
-input[type=file] > input[type=button]::-moz-focus-inner {
-  border: 0;
-  margin: 0;
-  padding: 0;
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
 }
-/* WebKit Fix */
-input[type=search],
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration {
-  -webkit-appearance: none;
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-[placeholder]:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-/* iOS7 Fix - some inputs collapse when empty */
-input[type=text],
-input[type=password],
-input[type=search],
-input[type=email],
-input[type=url],
-input[type=tel],
-input[type=date],
-input[type=time],
-input[type=number] {
-  height: 2em;
-}
-/* Disable max-width for Google Map images */
-#map_canvas img,
-.google-maps img {
-  max-width: none;
-}
-img,
-object,
-embed {
-  border: none;
-  -ms-interpolation-mode: bicubic;
-  display: block;
-  vertical-align: middle;
-  max-width: 100%;
-  width: auto;
-  width: auto\9;
-  /* IE Fix */
-  height: auto;
-  border: 0;
-}
-/* --------------------------------------------------------------
-		PRINT
--------------------------------------------------------------- */
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-  thead {
-    display: table-header-group;
-  }
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-  img {
-    max-width: 100% !important;
-  }
-  @page {
-    margin: 2cm;
-  }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
-/* --------------------------------------------------------------
-		HELP CLASSES
--------------------------------------------------------------- */
-.no-padding {
-  padding: 0 !important;
-}
-.no-margin {
-  margin: 0 !important;
-}
-.float-l {
+[class*='box-'],
+.box {
   float: left;
+  display: inline-block;
+  padding: 20px 5px;
 }
-.float-r {
-  float: right;
+.box-12 {
+  width: 100%;
+}
+.box-11 {
+  width: 91.6%;
+}
+.box-10 {
+  width: 83.3%;
+}
+.box-9 {
+  width: 75%;
+}
+.box-8 {
+  width: 66.6%;
+}
+.box-7 {
+  width: 58.3%;
+}
+.box-6 {
+  width: 50%;
+}
+.box-5 {
+  width: 41.6%;
+}
+.box-4 {
+  width: 33.3%;
+}
+.box-3 {
+  width: 25%;
+}
+.box-2 {
+  width: 16.6%;
+}
+.box-1 {
+  width: 8.3%;
 }
 /* --------------------------------------------------------------
 	2. BASE
@@ -229,13 +159,19 @@ body {
 }
 a,
 a:visited {
-  text-decoration: underline;
+  text-decoration: none;
+  color: black;
+}
+a:hover,
+a:visited:hover,
+a:focus,
+a:visited:focus {
   color: black;
 }
 /* --------------------------------------------------------------
 	3. TYPOGRAPHY
 	   Headings, and paragraphs. Font-size and line-height adjust 
-	   for opitmal readability. (TODO - blockquote osv)
+	   for opitmal readability. 
 -------------------------------------------------------------- */
 /* --------------------------------------------------------------
 		3. TYPOGRAPHY
@@ -251,17 +187,10 @@ strong {
 }
 body {
   font-size: 100%;
-  font-family: 'Nunito';
+  font-family: Georgia, serif;
   color: #111111;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-hr {
-  border: none;
-  height: 1px;
-  background: black;
-  width: 60%;
-  margin: 4em auto;
 }
 blockquote {
   font-size: 1.125em;
@@ -269,6 +198,31 @@ blockquote {
   padding-left: 40px;
   margin-left: -40px;
   border-left: 2px solid #ff851b;
+  margin: 3em 0;
+  float: left;
+}
+blockquote.big {
+  border-left: none;
+  font-size: 2em;
+  width: 120%;
+  float: left;
+  display: block;
+  margin: 2em 0 2em -10%;
+  padding: 0;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: -0.5px;
+}
+@media screen and (min-width: 540px) and (max-width: 960px), only screen and (max-width: 540px) {
+  blockquote.big.big {
+    font-size: 1.2em !important;
+    border-left: none;
+    font-size: 2em;
+    width: 100%;
+    display: block;
+    margin: 2em 0 2em 0;
+    padding: 0;
+  }
 }
 .initial:first-letter {
   float: left;
@@ -285,11 +239,9 @@ h3 {
   margin-bottom: 12px;
   font-weight: normal;
   line-height: 1em;
-  color: #f38065;
 }
 p > a {
-  font-weight: bolder;
-  text-decoration: none;
+  text-decoration: underline;
 }
 h1 > a,
 h2 > a,
@@ -306,12 +258,15 @@ h2 {
 h3 {
   font-size: 1.525em;
 }
+p + p.indent {
+  text-indent: 2em;
+  margin: -1em 0 1em 0;
+}
 p {
-  font-size: 16px;
-  line-height: 1.6em;
+  font-size: 1.125em;
+  line-height: 145%;
   display: block;
   margin: 0 0 1em 0;
-  font-weight: 100;
 }
 p:last-child {
   margin: 0;
@@ -478,7 +433,6 @@ ul.commentlist h2 {
 }
 #comment {
   overflow: hidden;
-  font-family: 'Nunito';
 }
 #comment label[for] {
   display: none;
@@ -561,63 +515,75 @@ ul.commentlist h2 {
   margin-left: 0;
 }
 /* --------------------------------------------------------------
-	5. GRID
+	5. FIXES and print styles
 -------------------------------------------------------------- */
 /* --------------------------------------------------------------
-		5. GRID
+		5. FIXES
 -------------------------------------------------------------- */
-.container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
+/* Firefox Fix */
+button::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner,
+input[type=file] > input[type=button]::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
+/* WebKit Fix */
+input[type=search],
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
-[class*='box-'],
-.box {
+[placeholder]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+/* iOS7 Fix - some inputs collapse when empty */
+input[type=text],
+input[type=password],
+input[type=search],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=date],
+input[type=time],
+input[type=number] {
+  height: 2em;
+}
+/* Disable max-width for Google Map images */
+#map_canvas img,
+.google-maps img {
+  max-width: none;
+}
+img,
+object,
+embed {
+  border: none;
+  -ms-interpolation-mode: bicubic;
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+  width: auto;
+  width: auto\9;
+  /* IE Fix */
+  height: auto;
+  border: 0;
+}
+/* --------------------------------------------------------------
+		HELP CLASSES
+-------------------------------------------------------------- */
+.no-padding {
+  padding: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.float-l {
   float: left;
-  display: inline-block;
-  padding: 20px 5px;
 }
-.box-12 {
-  width: 100%;
-}
-.box-11 {
-  width: 91.6%;
-}
-.box-10 {
-  width: 83.3%;
-}
-.box-9 {
-  width: 75%;
-}
-.box-8 {
-  width: 66.6%;
-}
-.box-7 {
-  width: 58.3%;
-}
-.box-6 {
-  width: 50%;
-}
-.box-5 {
-  width: 41.6%;
-}
-.box-4 {
-  width: 33.3%;
-}
-.box-3 {
-  width: 25%;
-}
-.box-2 {
-  width: 16.6%;
-}
-.box-1 {
-  width: 8.3%;
+.float-r {
+  float: right;
 }
 .hidden {
   display: none;
@@ -625,16 +591,126 @@ ul.commentlist h2 {
 .notvisible {
   visibility: hidden;
 }
+.pt100 {
+  padding-top: 100px;
+}
+.pt50 {
+  padding-top: 50px;
+}
+.pt20 {
+  padding-top: 20px;
+}
+.pb100 {
+  padding-bottom: 100px;
+}
+.pb50 {
+  padding-bottom: 50px;
+}
+.pb20 {
+  padding-bottom: 20px;
+}
+.mt100 {
+  margin-top: 100px;
+}
+.mt50 {
+  margin-top: 50px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.mb100 {
+  margin-bottom: 100px;
+}
+.mb50 {
+  margin-bottom: 50px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 540px) {
+  [class*='mb'] {
+    margin-bottom: 0;
+  }
+  [class*='mt'] {
+    margin-top: 0;
+  }
+  [class*='pb'] {
+    padding-bottom: 0;
+  }
+  [class*='pt'] {
+    padding-top: 0;
+  }
+}
+.centered {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  float: none;
+}
+/* --------------------------------------------------------------
+		PRINT
+-------------------------------------------------------------- */
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  @page {
+    margin: 2cm;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
 /* --------------------------------------------------------------
 	6. MEDIA QUERIES 
 	Your responsive styles here.
 -------------------------------------------------------------- */
-/* --------------------------------------------------------------
-		6. MEDIA QUERIES 
--------------------------------------------------------------- */
 @media screen and (min-width: 540px) and (max-width: 960px) {
+  /* --------------------------------------------------------------
+		TABLET STYLES
+-------------------------------------------------------------- */
   .container {
-    max-width: 500px;
+    max-width: 700px;
   }
   .tablet-12 {
     width: 100%;
@@ -677,6 +753,9 @@ ul.commentlist h2 {
   }
 }
 @media only screen and (max-width: 540px) {
+  /* --------------------------------------------------------------
+		PHONE STYLES
+-------------------------------------------------------------- */
   [class*='box-'],
   [class*='tablet-'] {
     width: 100%;
@@ -687,3 +766,7 @@ ul.commentlist h2 {
     display: none;
   }
 }
+/* --------------------------------------------------------------
+		6. MEDIA QUERIES 
+		   Other media queries
+-------------------------------------------------------------- */

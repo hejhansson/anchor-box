@@ -44,10 +44,10 @@
 	@import "_var.less";
 
 /* --------------------------------------------------------------
-	1. FIXES and print styles
+	1. GRID
 -------------------------------------------------------------- */
-
-	@import "_fixes.less";
+	
+	@import "_grid.less";
 
 /* --------------------------------------------------------------
 	2. BASE
@@ -72,14 +72,23 @@
 	@import "_site.less";
 
 /* --------------------------------------------------------------
-	5. GRID
+	5. FIXES and print styles
 -------------------------------------------------------------- */
-	
-	@import "_grid.less";
+
+	@import "_fixes.less";
+
 
 /* --------------------------------------------------------------
 	6. MEDIA QUERIES 
 	Your responsive styles here.
 -------------------------------------------------------------- */
 	
-	@import "_responsiveness.less";
+	@media @tablet {
+		@import "_tablet.less";
+	}
+
+	@media @phone {
+		@import "_phone.less";
+	}
+
+		@import "_responsiveness.less";

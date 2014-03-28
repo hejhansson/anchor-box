@@ -1,5 +1,5 @@
 /* --------------------------------------------------------------
-		1. FIXES
+		5. FIXES
 -------------------------------------------------------------- */
 
 /* Firefox Fix */
@@ -16,6 +16,50 @@ input[type=text], input[type=password], input[type=search], input[type=email], i
 #map_canvas img, .google-maps img {max-width: none;}
 
 img, object, embed {border: none;-ms-interpolation-mode: bicubic;display: block; vertical-align: middle; max-width: 100%; width: auto; width: auto\9; /* IE Fix */ height: auto; border: 0;}
+
+
+/* --------------------------------------------------------------
+		HELP CLASSES
+-------------------------------------------------------------- */
+
+.no-padding {padding: 0 !important;}
+.no-margin {margin: 0 !important;}
+.float-l {float: left;}
+.float-r {float: right;}
+
+.hidden {display: none;}
+.notvisible {visibility: hidden;}
+
+.pt100 {padding-top:100px}
+.pt50 {padding-top:50px}
+.pt20 {padding-top:20px}
+.pb100 {padding-bottom:100px}
+.pb50 {padding-bottom:50px}
+.pb20 {padding-bottom:20px}
+.mt100 {margin-top:100px}
+.mt50 {margin-top:50px}
+.mt20 {margin-top:20px}
+.mb100 {margin-bottom:100px}
+.mb50 {margin-bottom:50px}
+.mb20 {margin-bottom:20px}
+
+@media @phone {
+	[class*='mb'] {
+		margin-bottom: 0;
+	}
+	[class*='mt'] {
+		margin-top: 0;
+	}
+	[class*='pb'] {
+		padding-bottom: 0;
+	}
+	[class*='pt'] {
+		padding-top: 0;
+	}
+}
+
+.centered {margin-right: auto;margin-left: auto;display: block;float: none;}
+
 
 
 
@@ -37,27 +81,6 @@ img{max-width:100% !important}
 p,h2,h3{orphans:3;widows:3}
 h2,h3{page-break-after:avoid}
 }
-
-/* --------------------------------------------------------------
-		HELP CLASSES
--------------------------------------------------------------- */
-
-.no-padding {
-	padding: 0 !important;
-}
-
-.no-margin {
-	margin: 0 !important;
-}
-
-.float-l {
-	float: left;
-}
-
-.float-r {
-	float: right;
-}
-
 
 
 
